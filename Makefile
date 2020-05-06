@@ -7,7 +7,7 @@ test:
 
 .PHONY: bin
 bin: fmt vet
-	go build -o bin/{{ .PluginName }} github.com/{{ .Owner }}/{{ .Repo }}/cmd/plugin
+	go build -o bin/shipcaps-kubectl github.com/redradrat/shipcaps-kubectl/cmd/shipcaps
 
 .PHONY: fmt
 fmt:

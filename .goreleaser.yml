@@ -1,10 +1,10 @@
-project_name: {{ .PluginName }}
+project_name: shipcaps-kubectl
 release:
   github:
-    owner: {{ .Owner }}
-    name: {{ .Repo }}
+    owner: redradrat
+    name: shipcaps-kubectl
 builds:
-  - id: {{ .PluginName }}
+  - id: shipcaps-kubectl
     goos:
     - linux
     - windows
@@ -15,14 +15,14 @@ builds:
     env:
       - CGO_ENABLED=0
       - GO111MODULE=on
-    main: cmd/plugin/main.go
+    main: cmd/shipcaps/main.go
     ldflags: -s -w
-      -X github.com/{{ .Owner }}/{{ .Repo }}/pkg/version.version=
+      -X github.com/redradrat/shipcaps-kubectl/pkg/version.version=
 archives:
-  - id: {{ .PluginName }}
+  - id: shipcaps-kubectl
     builds:
-    - {{ .PluginName }}
-    name_template: {{ `"{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"` }}
+    - shipcaps-kubectl
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     format_overrides:
     - goos: windows
       format: zip
